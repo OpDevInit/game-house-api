@@ -1,4 +1,4 @@
-package com.gamehouse.gamehouse.interfaces;
+package com.gamehouse.gamehouse.repository;
 
 
 import java.util.List;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.gamehouse.gamehouse.entities.Games;
 
 @Repository
-public interface GamesRepository extends JpaRepository<Games, Integer> {
+public interface GamesRepository extends JpaRepository<Games, Integer>  {
         List<Games> findByName(String name);
 
 }
