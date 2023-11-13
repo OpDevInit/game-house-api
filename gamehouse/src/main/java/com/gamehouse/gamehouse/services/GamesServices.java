@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.gamehouse.gamehouse.entities.Games;
 import com.gamehouse.gamehouse.repository.GamesRepository;
 
-
 @RestController
 @Service
 public class GamesServices {
@@ -35,11 +34,13 @@ public class GamesServices {
     public Games updateGame(@RequestBody Games gamesData, @RequestParam Integer id) {
         gamesRepository.findById(id);
         gamesData.setId(id);
-        return gamesRepository.save(gamesData); 
+        return gamesRepository.save(gamesData);
     }
 
     public void deleteGame(Integer id) {
-        gamesRepository.deleteById(id);;;
+        gamesRepository.deleteById(id);
+        ;
+        ;
     }
 
 }

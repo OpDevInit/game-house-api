@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GamehouseApplication<gamehouse>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.gamehouse.gamehouse.GamehouseApplication",
+            "projectName": "game-house",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GamehouseApplication<gamehouse>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.gamehouse.gamehouse.GamehouseApplication",
+            "projectName": "gamehouse",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
