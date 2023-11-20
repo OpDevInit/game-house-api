@@ -19,6 +19,16 @@
             "projectName": "gamehouse",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GameSaveApplication<game_saved>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.game_save.game_save.GameSaveApplication",
+            "projectName": "game_saved",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

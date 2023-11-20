@@ -1,8 +1,9 @@
 package com.game_save.game_save.services;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.game_save.game_save.entities.Games;
 import com.game_save.game_save.entities.Saves;
@@ -11,19 +12,51 @@ import com.game_save.game_save.repository.SaveRepository;
 
 @Service
 public class SaveServices {
+   @Autowired
    private GamesFeignClients gamesFeignClients;
-
+   @Autowired
    private SaveRepository saveRepository;
 
-    public Saves getSaves(@RequestParam Integer gamesId,float timeGameSaves, String localGameSaved){
-        Games games = gamesFeignClients.getGamesId(gamesId).getBody();
-        saveRepository.findById(gamesId);
-        return new Saves(gamesId, games.getName(), games.getProducer(), timeGameSaves, localGameSaved);
-    }
+   public List<Saves> getSaves() {
+      return saveRepository.findAll();
+   }
 
-    public Saves postNewSave(@RequestParam Integer gamesId,@RequestBody float timeGameSaves,@RequestBody String localGameSaved){
-       Games games = gamesFeignClients.getGamesId(gamesId).getBody();
-       Saves newSave = new Saves(gamesId,games.getName(), games.getProducer(), timeGameSaves, localGameSaved);
-       return saveRepository.save(newSave);
-    }
+   public Saves getSavesById(Integer id) {
+      return saveRepository.findById(id).get();
+   }
+
+   public Saves postNewSave(Integer gamesId, Saves savesData) {
+      Games games = gamesFeignClients.getGameById(gamesId).getBody();
+      Saves save = new Saves(gamesId,
+            games.getName(),
+            games.getProducer(),
+            savesData.getNamePersonSave(),
+            savesData.getLocalSaved());
+      return saveRepository.save(save);
+
+   }
+
+   public Saves replaceSave(Integer id, Saves saveData) {
+      Games games = gamesFeignClients.getGameById(id).getBody();
+      Saves saves = new Saves(id,
+            games.getName(),
+            games.getProducer(),
+            saveData.getNamePersonSave(),
+            saveData.getLocalSaved());
+      saves.setId(id);
+      return saveRepository.save(saves);
+   }
+
+   public void deleteSave(Integer id) {
+      Saves saves = saveRepository.findById(id).get();
+      saveRepository.deleteById(id);
+      Saves save = new Saves(id,
+            saves.getName(),
+            saves.getProducer(),
+            null,
+            null);
+      saveRepository.save(save);
+      save.setId(id);
+   }
+
 }

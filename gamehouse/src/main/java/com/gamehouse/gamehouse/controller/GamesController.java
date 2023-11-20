@@ -35,6 +35,11 @@ public class GamesController {
         return ResponseEntity.ok(gamesServices.findGameByName(name));
     }
 
+    @GetMapping("/find/{id}")
+    public ResponseEntity<Games> getGameById(@PathVariable Integer id) {
+        return new ResponseEntity<Games>(gamesServices.findGameById(id), HttpStatus.OK);
+    }
+
     @PostMapping("/newgame")
     public ResponseEntity<Games> saveNewGame(@RequestBody Games newGame) {
         return ResponseEntity.ok(gamesServices.saveGame(newGame));
@@ -47,7 +52,7 @@ public class GamesController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void>deleteGame(@PathVariable Integer id) {
+    public ResponseEntity<Void> deleteGame(@PathVariable Integer id) {
         gamesServices.deleteGame(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }

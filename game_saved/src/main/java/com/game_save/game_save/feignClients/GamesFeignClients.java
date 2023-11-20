@@ -1,6 +1,8 @@
 package com.game_save.game_save.feignClients;
 
-import org.springframework.cloud.netflix.feign.FeignClient;
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +11,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.game_save.game_save.entities.Games;
 
 @Component
-@FeignClient(name = "gamehouse", path = "/games")
+@FeignClient(value = "gamehouse", url = "localhost:8080", path = "/games")
 public interface GamesFeignClients {
 
-        @GetMapping(value = "{id}")
-        ResponseEntity<Games> getGamesId(@PathVariable Integer id);
+        @GetMapping("/find/{name}")
+        public ResponseEntity<List<Games>> getGameByName(@PathVariable String name);
+
+        @GetMapping("/find/{id}")
+        public ResponseEntity<Games> getGameById(@PathVariable Integer id);
 }
