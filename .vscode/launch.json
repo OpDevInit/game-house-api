@@ -2,21 +2,17 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Spring Boot-GamehouseApplication<gamehouse>",
+            "name": "EurekaServerApplication",
+            "request": "launch",
+            "mainClass": "com.eureka_server.eureka_server.EurekaServerApplication"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GamehouseApplication<gamehouse-8080>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.gamehouse.gamehouse.GamehouseApplication",
             "projectName": "game-house",
-            "args": "",
-            "envFile": "${workspaceFolder}/.env"
-        },
-        {
-            "type": "java",
-            "name": "Spring Boot-GamehouseApplication<gamehouse>",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "mainClass": "com.gamehouse.gamehouse.GamehouseApplication",
-            "projectName": "gamehouse",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         },
@@ -27,6 +23,28 @@
             "cwd": "${workspaceFolder}",
             "mainClass": "com.game_save.game_save.GameSaveApplication",
             "projectName": "game_saved",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=50499 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=game_saved"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EurekaServerApplication<eureka_server>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.eureka_server.eureka_server.EurekaServerApplication",
+            "projectName": "eureka_server",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55069 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=eureka_server"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GamehouseApplication<game_house>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.gamehouse.gamehouse.GamehouseApplication",
+            "projectName": "game_house",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
         }

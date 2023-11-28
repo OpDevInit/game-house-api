@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.game_save.game_save.entities.Games;
 
 @Component
-@FeignClient(value = "gamehouse", url = "localhost:8080", path = "/games")
+@FeignClient(value = "gamehouse", path = "/games")
 public interface GamesFeignClients {
 
         @GetMapping("/find/{name}")
