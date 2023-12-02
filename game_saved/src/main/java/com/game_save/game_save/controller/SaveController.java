@@ -33,7 +33,7 @@ public class SaveController {
 
     @GetMapping("find/{id}")
     public ResponseEntity<Saves> getSavesById(@PathVariable Integer id) {
-        return new ResponseEntity<Saves>(saveServices.getSavesById(id), HttpStatus.OK);
+        return saveServices.getSavesById(id);
     }
 
     @PostMapping("/newsave/{gamesId}")

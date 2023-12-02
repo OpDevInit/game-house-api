@@ -3,13 +3,14 @@ package com.game_save.game_save.entities;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
-
+@Builder
 public class Saves {
     @Id
     private Integer id;

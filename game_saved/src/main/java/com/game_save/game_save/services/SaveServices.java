@@ -1,17 +1,34 @@
 package com.game_save.game_save.services;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.retry.annotation.Recover;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.client.HttpStatusCodeException;
 
 import com.game_save.game_save.entities.Games;
 import com.game_save.game_save.entities.Saves;
+import com.game_save.game_save.exception.noSuchFieldError;
 import com.game_save.game_save.feignClients.GamesFeignClients;
 import com.game_save.game_save.repository.SaveRepository;
 
+import lombok.Builder;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
+@Builder
 @Service
 public class SaveServices {
+
    @Autowired
    private GamesFeignClients gamesFeignClients;
    @Autowired
@@ -21,8 +38,17 @@ public class SaveServices {
       return saveRepository.findAll();
    }
 
-   public Saves getSavesById(Integer id) {
-      return saveRepository.findById(id).get();
+   public ResponseEntity<Saves> getSavesById(Integer id) {
+      return new ResponseEntity<Saves>(saveRepository.findById(id).orElseThrow(()-> new noSuchFieldError("savegame not found...")), HttpStatus.OK);
+
+   }
+
+   public ResponseEntity<Saves> getSavesWhenDatabaseIsOff(Integer id) {
+      return new ResponseEntity<Saves>(
+            Saves.builder().
+            build(),
+            HttpStatus.TEMPORARY_REDIRECT);
+
    }
 
    public Saves postNewSave(Integer gamesId, Saves savesData) {

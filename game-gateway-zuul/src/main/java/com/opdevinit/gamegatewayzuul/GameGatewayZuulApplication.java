@@ -1,14 +1,13 @@
-package com.gamehouse.gamehouse;
+package com.opdevinit.gamegatewayzuul;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class GamehouseApplication {
+public class GameGatewayZuulApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GamehouseApplication.class, args);
+		SpringApplication.run(GameGatewayZuulApplication.class, args);
 	}
 
 }
