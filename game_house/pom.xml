@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.5</version>
+		<version>3.1.6</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gamehouse</groupId>
@@ -18,7 +18,6 @@
 		<java.version>17</java.version>
 		<start-class> com.gamehouse.gamehouse.GamehouseApplication</start-class>
 	</properties>
-
 	<dependencies>
 
 		<dependency>
@@ -93,9 +92,16 @@
 					</image>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
+		
+			
+	
+		
 	</build>
-
 
 	<dependencyManagement>
 		<dependencies>
