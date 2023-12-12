@@ -1,8 +1,10 @@
 package com.gamehouse.gamehouse.controller;
 
 import java.util.List;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,10 +22,16 @@ import com.gamehouse.gamehouse.services.GamesServices;
 @RestController
 @RequestMapping("/games")
 public class GamesController {
-
     @Autowired
     public GamesServices gamesServices;
 
+    
+    @Value("${test.config}")
+    private String testConfig;
+
+    private static Logger logger = LoggerFactory.getLogger(GamesController.class);
+
+    //CRUD path's
     @GetMapping
     public ResponseEntity<List<Games>> getGames() {
         return ResponseEntity.ok(gamesServices.getGames());
@@ -55,4 +63,12 @@ public class GamesController {
         gamesServices.deleteGame(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    //Configs Path
+    @GetMapping("/configs")
+    public ResponseEntity<Void> getconfigs() {
+        logger.info("CONFIG = "+ testConfig);
+        return ResponseEntity.noContent().build();
+    }
+
 }
