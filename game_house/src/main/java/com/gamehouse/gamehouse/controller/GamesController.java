@@ -29,7 +29,7 @@ public class GamesController {
 
     @Value("${test.config}")
     private String testConfig;
-
+    
     private static Logger logger = LoggerFactory.getLogger(GamesController.class);
 
     // CRUD path's
@@ -68,7 +68,7 @@ public class GamesController {
     // Configs Path
     @GetMapping("/configs")
     public ResponseEntity<Void> getconfigs() {
-        logger.info("CONFIG = " + testConfig);
+        logger.info("\nCONFIG = " + testConfig);
         return ResponseEntity.noContent().build();
     }
 

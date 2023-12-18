@@ -5,7 +5,8 @@
             "name": "GamesConfigServerApplication",
             "request": "launch",
             "mainClass": "com.opdevinit.gamesconfigserver.GamesConfigServerApplication",
-            "projectName": "games-config-server"
+            "projectName": "games-config-server",
+            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
         },
         {
             "type": "java",
@@ -15,7 +16,8 @@
             "mainClass": "com.game_save.game_save.GameSaveApplication",
             "projectName": "game_saved",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
         },
         {
             "type": "java",
@@ -25,7 +27,8 @@
             "mainClass": "com.gamehouse.gamehouse.GamehouseApplication",
             "projectName": "game_house",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
         },
         {
             "type": "java",
@@ -36,7 +39,7 @@
             "projectName": "eureka_server",
             "args": "",
             "envFile": "${workspaceFolder}/.env",
-            "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=65030 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=eureka_server"
+            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
         },
         {
             "type": "java",
@@ -46,7 +49,8 @@
             "mainClass": "com.opdevinit.gamesgatewayzuul.GamesGatewayZuulApplication",
             "projectName": "games-gateway-zuul",
             "args": "",
-            "envFile": "${workspaceFolder}/.env"
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
         }
     ]
 }
