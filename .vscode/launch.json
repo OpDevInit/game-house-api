@@ -25,10 +25,10 @@
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "mainClass": "com.gamehouse.gamehouse.GamehouseApplication",
-            "projectName": "game_house",
+            "projectName": "game-house",
             "args": "",
             "envFile": "${workspaceFolder}/.env",
-            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
+            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=* -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51674 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=game_house"
         },
         {
             "type": "java",
@@ -39,7 +39,7 @@
             "projectName": "eureka_server",
             "args": "",
             "envFile": "${workspaceFolder}/.env",
-            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
+            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=* -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=51665 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=eureka_server"
         },
         {
             "type": "java",
@@ -51,6 +51,18 @@
             "args": "",
             "envFile": "${workspaceFolder}/.env",
             "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
-        }
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GameUserApplication<game-user>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.opdevinit.gameuser.GameUserApplication",
+            "projectName": "game-user",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env",
+            "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
+        },
+       
     ]
 }
