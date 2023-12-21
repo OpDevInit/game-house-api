@@ -15,8 +15,8 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "tb_category")
 public class Category {
-    @Id()
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String gameCategory;
+    private String gameType;
 }
