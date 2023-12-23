@@ -2,6 +2,8 @@ package com.opdevinit.gameuser.entities;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(unique = true)
     private String email;
     private String password;
 
@@ -35,5 +38,5 @@ public class User {
         joinColumns = @JoinColumn(name="user_id"),
         inverseJoinColumns = @JoinColumn(name="category_id")    
     )
-    private Set<Category> roles = new HashSet<>();
+    private Set<Category> dataGames = new HashSet<>();
 }
