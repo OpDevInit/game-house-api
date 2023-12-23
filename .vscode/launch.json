@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GameOauthApplication",
+            "request": "launch",
+            "mainClass": "com.opdevinit.gameoauth.GameOauthApplication"
+        },
+        {
+            "type": "java",
             "name": "GamesConfigServerApplication",
             "request": "launch",
             "mainClass": "com.opdevinit.gamesconfigserver.GamesConfigServerApplication",
@@ -63,6 +69,15 @@
             "envFile": "${workspaceFolder}/.env",
             "vmArgs": "-Dmanagement.endpoints.jmx.exposure.include=*"
         },
-       
+        {
+            "type": "java",
+            "name": "Spring Boot-GameOauthApplication<game-oauth>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.opdevinit.gameoauth.GameOauthApplication",
+            "projectName": "game-oauth",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
     ]
 }
